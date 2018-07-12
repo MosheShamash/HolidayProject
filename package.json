@@ -1,0 +1,16 @@
+{
+  "name": "holdiayproject",
+  "version": "1.0.0",
+  "description": "\"Holiday Booking System\"",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha",
+    "start": "node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^5.2.0"
+  }
+}
