@@ -1,3 +1,4 @@
+
 class Booking {
     constructor(startDate, endDate) {
         this.startDate = new Date(startDate)
@@ -15,18 +16,22 @@ class Booking {
         return Math.round((difference_ms / oneDay) + 1) // Convert back to days and return 
     }
 
-    authorise(name, date) {
-        this.isAuthorised = isAuthorised()
-        this.authorisedBy = authorisedBy()
-        this.authorisedOn = authorisedOn()
+    authorise(name, date = new Date()) {
+        this.isAuthorised = true
+        this.authorisedBy = name
+        this.authorisedOn = new Date(date)
     }
 
-    isAuthorised() {
-        return true
+    is_authorised() {
+        return this.isAuthorised
     }
 
-    authorisedBy() {
-        return
+    authorised_by() {
+        return this.authorisedBy
+    }
+
+    authorised_on() {
+        return this.authorisedOn
     }
 }
 

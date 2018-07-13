@@ -11,6 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "chai": "^4.1.2",
-    "mocha": "^5.2.0"
+    "mocha": "^5.2.0",
+    "string-capitalize-name": "^1.0.3"
   }
 }

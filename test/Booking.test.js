@@ -1,5 +1,5 @@
-const chai = require('chai');
-const expect = chai.expect;
+const chai = require('chai')
+const expect = chai.expect
 
 var Booking = require('../models/Booking.js')
 
@@ -20,9 +20,28 @@ describe("Booking", function() {
         expect(result).to.eql(5)
     })
 
-    it("Returns the information on a Booking's authorisation", function() {
+    it("Returns the information on a Booking's authorisation (no date entered)", function() {
         var booking = new Booking("2018-09-02", "2018-09-06")
-        expect(booking.authorisedBy("Mr Boss Man")).to.equal("Mr Boss Man")
-        expect(booking.isAuthorised()).to.equal(true)
+        booking.authorise("Mr Boss Man")
+        expect(booking.authorised_by()).to.eql("Mr Boss Man")
+        expect(booking.is_authorised()).to.eql(true)
+
+        var todaysDate = booking.authorised_on()
+        var year = todaysDate.getFullYear()
+        var month = todaysDate.getMonth() + 1
+        var day = todaysDate.getDate()
+
+        expect(year).to.equal(2018)
+        expect(month).to.equal(07)
+        expect(day).to.equal(13)
+    })
+
+    it("Returns the information on a Booking's authorisation (date entered)", function() {
+        var booking = new Booking("2018-09-02", "2018-09-06")
+        booking.authorise("Mr Boss Man", "2018-07-01")
+        expect(booking.authorised_by()).to.eql("Mr Boss Man")
+        expect(booking.is_authorised()).to.eql(true)
+        expect(booking.authorised_on()).to.eql(new Date("2018-07-01"))
     })
 })
+
