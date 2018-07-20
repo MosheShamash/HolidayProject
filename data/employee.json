@@ -1,0 +1,14 @@
+{
+    "employees": [
+        {
+            "payrollNo": 22,
+            "name": "John",
+            "email": "hjon@hotmail.com",
+            "holidayAllowance": 25,
+            "bookings": [],
+            "daysRemaining": 25,
+            "daysBooked": 0,
+            "daysBookedAndAuthorised": 0
+        }
+    ]
+}

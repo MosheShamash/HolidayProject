@@ -22,6 +22,7 @@ describe("Booking", function() {
 
     it("Returns the information on a Booking's authorisation (no date entered)", function() {
         var booking = new Booking("2018-09-02", "2018-09-06")
+        var d = new Date()
         booking.authorise("Mr Boss Man")
         expect(booking.authorised_by()).to.eql("Mr Boss Man")
         expect(booking.is_authorised()).to.eql(true)
@@ -31,9 +32,9 @@ describe("Booking", function() {
         var month = todaysDate.getMonth() + 1
         var day = todaysDate.getDate()
 
-        expect(year).to.equal(2018)
-        expect(month).to.equal(07)
-        expect(day).to.equal(13)
+        expect(year).to.equal(d.getFullYear())
+        expect(month).to.equal(d.getMonth() + 1)
+        expect(day).to.equal(d.getDate())
     })
 
     it("Returns the information on a Booking's authorisation (date entered)", function() {

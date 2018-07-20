@@ -49,6 +49,17 @@ class Employee {
         return futureBookings
     }
 
+    future_bookings_authorised() {
+        var futureBookingsAuthorised = []
+        for(var i = 0; i < this.future_bookings().length; i++){
+            if(this.future_bookings()[i].isAuthorised){
+                futureBookingsAuthorised.push(this.future_bookings()[i])
+            }
+        }
+        return futureBookingsAuthorised
+
+    }
+
     past_bookings() {
         var pastBookings = []
         for(var i = 0; i < this.bookings.length; i++){
@@ -57,6 +68,16 @@ class Employee {
             }
         }
         return pastBookings
+    }
+
+    past_bookings_authorised() {
+        var pastBookingsAuthorised = []
+        for(var i = 0; i < this.past_bookings().length; i++){
+            if(this.past_bookings()[i].isAuthorised){
+                pastBookingsAuthorised.push(this.past_bookings()[i])
+            }
+        }
+        return pastBookingsAuthorised
     }
 
     get bookingsList() {

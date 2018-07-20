@@ -32,4 +32,15 @@ describe("Integration", function() {
         expect(employee1.days_booked_and_authorised()).to.eql(5)
     })
 
+    it("Should return authorised bookings only", function() {
+        var employee2 = new Employee("E123", "joe bloggs", "joe@bloggs.com", 25)
+        employee2.makeBooking("2018-09-01", "2018-09-05")
+        employee2.makeBooking("2018-01-01", "2018-01-05")
+        employee2.future_bookings()[0].authorise(null)
+        employee.future_bookings(true)
+        employee.past_bookings(true)
+        expect(employee2.future_bookings_authorised()).to.eql([employee2.future_bookings()[0]])
+        expect(employee2.past_bookings_authorised()).to.eql([])
+    })
+
 })
